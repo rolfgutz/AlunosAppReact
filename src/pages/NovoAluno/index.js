@@ -2,6 +2,8 @@ import React from 'react';
 import { Link ,useParams} from 'react-router-dom'
 import './styles.css';
 import {FiCornerDownLeft,FiUserPlus} from 'react-icons/fi'
+import api from '../../services/api';
+
 
 export  default function NovoAluno(){
     const {alunoId} = useParams();
