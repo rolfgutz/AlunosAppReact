@@ -31,7 +31,7 @@ async function login(event){
 
     } catch(error)
     {
-        alert("o login falhou"+error)
+        alert("o login falhou "+ error)
 
     }
 
