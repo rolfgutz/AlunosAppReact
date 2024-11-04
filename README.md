@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# CRUD de Cadastro de Alunos - Frontend
+Este projeto é um aplicativo React que implementa um sistema CRUD (Criar, Ler, Atualizar, Excluir) para gerenciar alunos. O front-end é preparado para integrar-se com uma API de backend que gerencia as informações dos alunos.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Funcionalidades
+- **Sistema de Login**: O aplicativo possui um sistema de login onde os usuários podem autenticar-se usando seu e-mail e senha.
+- **CRUD de Alunos**: Após o login, os usuários podem:
+  - **Cadastrar novos alunos**
+  - **Visualizar a lista de alunos**
+  - **Editar informações de alunos existentes**
+  - **Excluir alunos**
 
-## Available Scripts
+## Pré-requisitos
+Antes de executar o projeto, verifique se você tem as seguintes ferramentas instaladas:
+- [Node.js](https://nodejs.org/) (v14 ou superior)
+- [npm](https://www.npmjs.com/) (geralmente já vem com o Node.js)
 
-In the project directory, you can run:
+## Instalação
+1. Clone o repositório:
+    ```bash
+    git clone https://github.com/rolfgutz/clientreact.git
+    cd NOME_DO_REPOSITORIO
+    ```
+2. Instale as dependências do projeto:
+    ```bash
+    npm install
+    ```
 
-### `npm start`
+## Configuração
+Para que o sistema de login funcione, você precisa ter uma API backend que gerencie os usuários e os dados dos alunos. O endpoint para o login é:
+``` 
+POST api/Account/LoginUser
+``` 
+O retorno do login deve incluir um token de autorização, que será armazenado no localStorage para uso em futuras requisições. As requisições à API de alunos precisam de autorização, como exemplificado no código abaixo:
+```javascript
+await api.delete(`api/alunos/${id}`, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } });
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Execução
+Para iniciar o aplicativo, execute:
+```bash
+npm start
+```
+O aplicativo será aberto em `http://localhost:3000`.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Estrutura do Projeto
+``` 
+/src
+  /assets # Imagens e outros recursos
+  /components # Componentes React do aplicativo
+  /services # Configuração da API para chamadas HTTP
+  /styles # Estilos CSS do aplicativo
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Contribuição
+Se você quiser contribuir para este projeto, fique à vontade para fazer um fork do repositório e enviar um pull request.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Licença
+Este projeto está licenciado sob a MIT License. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
